@@ -1,39 +1,105 @@
 <head>
-    <style type="text/css">
-    .likert ul
-    {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+<title>News in Social Media</title>
 
-    .likert li
-    {
-        float: left;
-        text-align: left;
-        list-style-type: none;
-    }
+    <style type="text/css">
+
+
+
+
+table.striped-columns tbody td:nth-of-type(even),
+table.striped-columns th:nth-of-type(even){
+	background: rgb(230, 230, 235);
+}
+
+table.border {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.border td,
+table.border th {
+    border: 1px solid rgb(200, 200, 208);
+    padding: 3px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+.button {
+  background-color: rgb(230, 230, 235);
+  border: 1px solid rgb(200, 200, 208);
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+body
+{
+    font-family: Helvetica, Sans-Serif;
+}
+
+
     </style>
+    
 </head>
 
 <body>
 
 
 <center> <img src="images/B.png">
-<br><br>
+<br><br><br><br>
 
 
-    <div style="margin: 0 auto; width: 600px;">
-        <ul class="likert">
-            <li class="likert"> Stimme überhaupt nicht zu zu <input id="radGuiltyStart" type="radio" name="Stimme überhaupt nicht zu zu" value="1" />
-            <li class="likert"><input type="radio" name="Guilty" value="2" />
-            <li class="likert"><input type="radio" name="Guilty" value="3" />
-            <li class="likert"><input type="radio" name="Guilty" value="4" />
-            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /> Stimme voll und ganz zu
-        </ul>
-    </div>
+<table class="striped-columns border">
+    <thead>
+        <tr>
+            <th width="300">Aussage</th>
+            <th width="100">Stimme überhaupt<br>nicht zu</th>
+            <th width="100">Stimme nicht zu</th>
+            <th width="100">Stimme weder zu noch lehne ich ab</th>
+            <th width="100">Stimme zu</th>
+            <th width="100">Stimme voll und<br> ganz zu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left;">Hierbei handelt es sich um Fake News.</td>
+            <td><input type="radio" value="1" name="enthusiasm"/></td>
+            <td><input type="radio" value="2" name="enthusiasm"/></td>
+            <td><input type="radio" value="3" name="enthusiasm"/></td>
+            <td><input type="radio" value="4" name="enthusiasm"/></td>
+            <td><input type="radio" value="5" name="enthusiasm"/></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ich finde, das KI-System hat die richtige Entscheidung getroffen.</td>
+            <td><input type="radio" value="1" name="knowledgeable"/></td>
+            <td><input type="radio" value="2" name="knowledgeable"/></td>
+            <td><input type="radio" value="3" name="knowledgeable"/></td>
+            <td><input type="radio" value="4" name="knowledgeable"/></td>
+            <td><input type="radio" value="5" name="knowledgeable"/></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ich würde die Nachricht weiterleiten.</td>
+            <td><input type="radio" value="1" name="timeliness"/></td>
+            <td><input type="radio" value="2" name="timeliness"/></td>
+            <td><input type="radio" value="3" name="timeliness"/></td>
+            <td><input type="radio" value="4" name="timeliness"/></td>
+            <td><input type="radio" value="5" name="timeliness"/></td>
+        </tr>
 
-<br><br>
-<a href="C.html">Nächste News</a>
+    </tbody>
+</table>
+
+
+
+<br><br><br>
+<a href="C.html" class="button">Nächste News</a>
 </center>
 </body>
