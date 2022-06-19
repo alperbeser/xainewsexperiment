@@ -1,0 +1,153 @@
+<head>
+<title>News in Social Media</title>
+
+    <style type="text/css">
+
+
+
+
+table.striped-columns tbody td:nth-of-type(even),
+table.striped-columns th:nth-of-type(even){
+	background: rgb(230, 230, 235);
+}
+
+table.border {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table.border td,
+table.border th {
+    border: 1px solid rgb(200, 200, 208);
+    padding: 3px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.button {
+  background-color: rgb(230, 230, 235);
+  border: 1px solid rgb(200, 200, 208);
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+img {
+  border: 1px solid rgb(230, 230, 235);
+   box-shadow:5px 20px 20px rgb(230, 230, 235); 
+}
+
+
+body
+{
+    font-family: Helvetica, Sans-Serif;
+}
+
+
+    </style>
+    
+</head>
+
+<body>
+
+
+
+<script>
+
+
+
+  
+
+
+
+function setNextPage() {
+
+    var pageOrderString = sessionStorage.getItem('pageOrderString');
+    
+    
+    var img = document.getElementById('newsImage');
+    img.src = "images/" + pageOrderString.charAt(pageOrderString.length - 1) + ".png";
+
+    console.log(img.src);
+
+
+    pageOrderString = pageOrderString.substring(0, pageOrderString.length - 1);
+    sessionStorage.setItem('pageOrderString', pageOrderString);
+    
+    var a = document.getElementById('nextPage');
+
+    if (pageOrderString.length == 0 ) {
+            a.href = "ende.html";
+    } else {
+            a.href = pageOrderString.charAt(pageOrderString.length - 1) + ".html";
+    }
+        
+    console.log(pageOrderString);
+}
+
+window.onload = (event) => {
+    setNextPage();
+};
+
+
+
+</script>
+
+
+
+<center> <img id="newsImage" style="width: 600px; height: auto;" src="images/A.png">
+<br><br><br><br><br><br>
+
+
+<table class="striped-columns border">
+    <thead>
+        <tr>
+            <th width="300">Aussage</th>
+            <th width="100">Stimme überhaupt<br>nicht zu</th>
+            <th width="100">Stimme nicht zu</th>
+            <th width="100">Stimme weder zu noch lehne ich ab</th>
+            <th width="100">Stimme zu</th>
+            <th width="100">Stimme voll und<br> ganz zu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: left;">Hierbei handelt es sich um Fake News.</td>
+            <td><input type="radio" value="1" name="enthusiasm"/></td>
+            <td><input type="radio" value="2" name="enthusiasm"/></td>
+            <td><input type="radio" value="3" name="enthusiasm"/></td>
+            <td><input type="radio" value="4" name="enthusiasm"/></td>
+            <td><input type="radio" value="5" name="enthusiasm"/></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ich finde, das KI-System hat die richtige Entscheidung getroffen.</td>
+            <td><input type="radio" value="1" name="knowledgeable"/></td>
+            <td><input type="radio" value="2" name="knowledgeable"/></td>
+            <td><input type="radio" value="3" name="knowledgeable"/></td>
+            <td><input type="radio" value="4" name="knowledgeable"/></td>
+            <td><input type="radio" value="5" name="knowledgeable"/></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Ich würde die Nachricht weiterleiten.</td>
+            <td><input type="radio" value="1" name="timeliness"/></td>
+            <td><input type="radio" value="2" name="timeliness"/></td>
+            <td><input type="radio" value="3" name="timeliness"/></td>
+            <td><input type="radio" value="4" name="timeliness"/></td>
+            <td><input type="radio" value="5" name="timeliness"/></td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+<br><br><br>
+<a id="nextPage" href="" class="button">Nächste News</a>
+</center>
+</body>
