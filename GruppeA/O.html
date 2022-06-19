@@ -61,8 +61,8 @@ body
 <script>
 
 
+var nextPageUrl = "";
 
-  
 
 
 
@@ -72,7 +72,7 @@ function setNextPage() {
     
     
     var img = document.getElementById('newsImage');
-    img.src = "images/" + pageOrderString.charAt(pageOrderString.length - 1) + ".png";
+    img.src = "images/" + pageOrderString.charAt(pageOrderString.length - 1) + ".jpg";
 
     console.log(img.src);
 
@@ -83,15 +83,16 @@ function setNextPage() {
     var a = document.getElementById('nextPage');
 
     if (pageOrderString.length == 0 ) {
-            a.href = "ende.html";
+        nextPageUrl = "ende.html";
     } else {
-            a.href = pageOrderString.charAt(pageOrderString.length - 1) + ".html";
+        nextPageUrl = pageOrderString.charAt(pageOrderString.length - 1) + ".html";
     }
         
     console.log(pageOrderString);
 }
 
 window.onload = (event) => {
+    console.log('yoooo');
     setNextPage();
 };
 
@@ -101,7 +102,7 @@ window.onload = (event) => {
 
 
 
-<center> <img id="newsImage" style="width: 600px; height: auto;" src="images/A.png">
+<center> <img id="newsImage" style="width: 600px; height: auto;" src="">
 <br><br><br><br><br><br>
 
 
@@ -117,6 +118,7 @@ window.onload = (event) => {
         </tr>
     </thead>
     <tbody>
+    <form method="post" action="" name="radiobuttons" id="form">
         <tr>
             <td style="text-align: left;">Hierbei handelt es sich um Fake News.</td>
             <td><input type="radio" value="1" name="enthusiasm"/></td>
@@ -141,13 +143,41 @@ window.onload = (event) => {
             <td><input type="radio" value="4" name="timeliness"/></td>
             <td><input type="radio" value="5" name="timeliness"/></td>
         </tr>
-
+    </form>
     </tbody>
 </table>
 
 
 
 <br><br><br>
-<a id="nextPage" href="" class="button">Nächste News</a>
+<label id="warningLabel" style="color:red;"></label><br><br>
+<a id="nextPage" class="button" onclick="validate();">Nächste News</a>
 </center>
+
+
+<script>
+function validate() {
+
+    var inputs = document.getElementById("form").elements;
+    var count  = 0;
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'radio' && inputs[i].checked) {
+            count++;
+        }
+    }
+    
+    let warningLabel = document.getElementById('warningLabel');
+
+    if (count == 3) {
+       warningLabel.innerHTML = '';
+       window.location.assign(nextPageUrl);
+    } else {
+       warningLabel.innerHTML = 'Bitte alle Aussagen bewerten.';
+    }
+    
+}
+
+
+
+</script>
 </body>

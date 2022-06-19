@@ -47,8 +47,8 @@ function shuffleWord (word){
 }
 
 function setupSession() {
-    //var pageOrderString = "ABCDEFGHIJKLMNOPQRST";
-    var pageOrderString = "ABC";
+    var pageOrderString = "ABCDEFGHIJKLMNOPQRST";
+   // var pageOrderString = "AB";
     pageOrderString = shuffleWord(pageOrderString);
     sessionStorage.setItem('pageOrderString', pageOrderString);
 }
